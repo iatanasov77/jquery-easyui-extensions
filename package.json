@@ -1,0 +1,23 @@
+{
+  "name": "jquery-easyui-extensions",
+  "version": "1.0.0",
+  "description": "Extensions(Helpers) for JQuery Easyui",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iatanasov77/jquery-easyui-extensions.git"
+  },
+  "keywords": [
+    "jquery",
+    "easyui"
+  ],
+  "author": "iatanasov77",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/iatanasov77/jquery-easyui-extensions/issues"
+  },
+  "homepage": "https://github.com/iatanasov77/jquery-easyui-extensions#readme"
+}
