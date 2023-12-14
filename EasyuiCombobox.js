@@ -17,6 +17,7 @@ export function EasyuiCombobox( selector, options )
         multiple: options.multiple,
         checkboxId: options.checkboxId,
         values: options.values,
+        debug: options?.debug ? true : false,
         prompt: selector.attr( 'data-placeholder' ),
         
         valueField: 'id',
@@ -34,6 +35,9 @@ export function EasyuiCombobox( selector, options )
         onLoadSuccess: function()
         {
             var opts    = $( this ).combobox( 'options' );
+            if ( opts.debug ) {
+                debugOptions( opts );
+            }
             
             if ( opts.loadedBoxes.includes( opts.checkboxId ) ) {
                 return;
@@ -98,4 +102,9 @@ function setValues( opts, selector )
     
     let uniqueValues = [...new Set( values )];
     selector.combobox( 'setValues', uniqueValues );
+}
+
+function debugOptions( opts )
+{
+    console.log( opts.values );
 }
