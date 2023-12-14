@@ -1,6 +1,6 @@
 {
   "name": "jquery-easyui-extensions",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Extensions(Helpers) for JQuery Easyui",
   "main": "index.js",
   "scripts": {
