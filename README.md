@@ -2,10 +2,11 @@
 Extensions(Helpers) for JQuery Easyui
 
 ## I. Usage
-1. When Create New Version in Git Change version in package.json Also.
 
 # II. Commands to publish Package
-1. Login Into NPM Registry
+1. When Create New Version in Git, Change version in package.json Also.
+
+2. Login Into NPM Registry
     ```
     export NPM_USERNAME=myusername
     export NPM_PASSWORD=mypassword
@@ -16,7 +17,7 @@ Extensions(Helpers) for JQuery Easyui
     $NPM_EMAIL
     !
     ```
-2. Publish Package
+3. Publish Package
     ```
     npm publish
     ```
