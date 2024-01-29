@@ -1,3 +1,10 @@
+1.0.3	|	Release date: **29.01.2024**
+============================================
+* New Features and Improvements:
+  - Update README File.
+  - Add Css Styles for Combobox.
+
+
 1.0.2	|	Release date: **14.12.2023**
 ============================================
 * Bug-Fixes:
