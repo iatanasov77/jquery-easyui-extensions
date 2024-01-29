@@ -1,23 +1,34 @@
 # jquery-easyui-extensions
 Extensions(Helpers) for JQuery Easyui
 
-## I. Usage
+## I. Install
 
-# II. Commands to publish Package
-1. When Create New Version in Git, Change version in package.json Also.
+    ```
+    npm i jquery-easyui-extensions
+    ```
+    or
+    ```
+    yarn add jquery-easyui-extensions
+    ```
 
-2. Login Into NPM Registry
+## II. Usage
+
+1. Create from Smfony Not Mapped Form Field
+
     ```
-    export NPM_USERNAME=myusername
-    export NPM_PASSWORD=mypassword
-    export NPM_EMAIL=user@domain.com
-    npm adduser<<!
-    $NPM_USERNAME
-    $NPM_PASSWORD
-    $NPM_EMAIL
-    !
-    ```
-3. Publish Package
-    ```
-    npm publish
+    require( 'jquery-easyui-extensions/EasyuiCombobox.css' );
+    import { EasyuiCombobox } from 'jquery-easyui-extensions/EasyuiCombobox.js';
+    
+    $( function()
+    {
+        let categorySelector    = "#product_form_categories";
+        let selectedCategories  = JSON.parse( $( '#product_form_productCategories').val() );
+        EasyuiCombobox( $( categorySelector ), {
+            required: true,
+            multiple: true,
+            checkboxId: "product_category",
+            values: selectedCategories,
+            debug: false
+        });
+    });
     ```
