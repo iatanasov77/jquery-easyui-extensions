@@ -19,6 +19,8 @@ export function EasyuiCombobox( selector, options )
         values: options.values,
         debug: options?.debug ? true : false,
         prompt: selector.attr( 'data-placeholder' ),
+        
+        getValuesFrom: options?.getValuesFrom ? options.getValuesFrom : false,
         removeSelected: options?.removeSelected ? true : false,
         
         valueField: 'id',
@@ -45,6 +47,10 @@ export function EasyuiCombobox( selector, options )
             }
             //console.log( opts.values );
             opts.loadedBoxes.push( opts.checkboxId );
+            
+            if ( ! opts.values ) {
+                opts.values = initValues( opts, $( this ) );
+            }
             
             if ( ! Array.isArray( opts.values ) ) {
                 opts.values = [];
@@ -89,6 +95,19 @@ export function EasyuiCombobox( selector, options )
             setValues( opts, $( this ) );
         }
     });
+}
+
+function initValues( opts, selector )
+{
+    let values  = null;
+    if ( opts.getValuesFrom == 'select-box' ) {
+        values  = [];
+        selector.find( 'option' ).each( function() {
+            values.push( $(this).val() );
+        });
+    }
+    
+    return values;
 }
 
 function setValues( opts, selector )
