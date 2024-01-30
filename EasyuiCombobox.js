@@ -19,6 +19,7 @@ export function EasyuiCombobox( selector, options )
         values: options.values,
         debug: options?.debug ? true : false,
         prompt: selector.attr( 'data-placeholder' ),
+        removeSelected: options?.removeSelected ? true : false,
         
         valueField: 'id',
         textField: 'text',
@@ -57,8 +58,10 @@ export function EasyuiCombobox( selector, options )
                 //console.log( $( ".combobox-checkbox-" + opts.checkboxId + "[value=" + opts.values[i] + "]" ).prop( "checked" ) );
             }
             
-            // https://stackoverflow.com/questions/13943511/remove-data-from-jquery-easyui-combobox
-            $( '.combobox-checkbox-' + opts.checkboxId ).parent(  '.combobox-item-selected'  ).remove();
+            if ( opts.removeSelected ) {
+                // https://stackoverflow.com/questions/13943511/remove-data-from-jquery-easyui-combobox
+                $( '.combobox-checkbox-' + opts.checkboxId ).parent(  '.combobox-item-selected'  ).remove();
+            }
 
             setValues( opts, $( this ) );
         },
