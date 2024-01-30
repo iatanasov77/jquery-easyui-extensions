@@ -1,3 +1,10 @@
+1.0.5	|	Release date: **30.01.2024**
+============================================
+* New Features:
+  - Add a New Option to Combobox Script.
+  - Improve Combobox Initialisation of Values.
+
+
 1.0.4	|	Release date: **29.01.2024**
 ============================================
 * New Features and Improvements:

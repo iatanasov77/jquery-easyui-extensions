@@ -20,6 +20,9 @@ export function EasyuiCombobox( selector, options )
         debug: options?.debug ? true : false,
         prompt: selector.attr( 'data-placeholder' ),
         
+        getValuesFrom: options?.getValuesFrom ? options.getValuesFrom : false,
+        removeSelected: options?.removeSelected ? true : false,
+        
         valueField: 'id',
         textField: 'text',
         
@@ -45,6 +48,10 @@ export function EasyuiCombobox( selector, options )
             //console.log( opts.values );
             opts.loadedBoxes.push( opts.checkboxId );
             
+            if ( ! opts.values ) {
+                opts.values = initValues( opts, $( this ) );
+            }
+            
             if ( ! Array.isArray( opts.values ) ) {
                 opts.values = [];
             }
@@ -57,8 +64,10 @@ export function EasyuiCombobox( selector, options )
                 //console.log( $( ".combobox-checkbox-" + opts.checkboxId + "[value=" + opts.values[i] + "]" ).prop( "checked" ) );
             }
             
-            // https://stackoverflow.com/questions/13943511/remove-data-from-jquery-easyui-combobox
-            $( '.combobox-checkbox-' + opts.checkboxId ).parent(  '.combobox-item-selected'  ).remove();
+            if ( opts.removeSelected ) {
+                // https://stackoverflow.com/questions/13943511/remove-data-from-jquery-easyui-combobox
+                $( '.combobox-checkbox-' + opts.checkboxId ).parent(  '.combobox-item-selected'  ).remove();
+            }
 
             setValues( opts, $( this ) );
         },
@@ -86,6 +95,19 @@ export function EasyuiCombobox( selector, options )
             setValues( opts, $( this ) );
         }
     });
+}
+
+function initValues( opts, selector )
+{
+    let values  = null;
+    if ( opts.getValuesFrom == 'select-box' ) {
+        values  = [];
+        selector.find( 'option' ).each( function() {
+            values.push( $(this).val() );
+        });
+    }
+    
+    return values;
 }
 
 function setValues( opts, selector )
